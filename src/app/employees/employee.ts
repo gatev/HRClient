@@ -1,11 +1,15 @@
 export class Employee {
-    id: number;
-    name: string;
-    username: string;
-    daysOff: number;
-    email: string;
-    password: string;
-    constructor() {
+  id: number;
+  imageUrl: string;
+  name: string;
+  username: string;
+  daysOff: number;
+  email: string;
+  password: string;
+  sex: string;
+  position: string;
 
-    }
+  constructor() {
+
+  }
 }

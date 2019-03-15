@@ -1,11 +1,19 @@
-<h1>Служители</h1>
 
-<ul>
-  <li *ngFor="let employee of employees">
-    <a routerLink="/details/{{employee.id}}">{{ employee.name }}</a>
+<div class="row">
+  <div class="col-sm-1 col-md-6 col-lg-2" *ngFor="let employee of employees">
 
-    <!-- <ul>
-      <li>{{ employee.email }}</li>
-    </ul> -->
-  </li>
-</ul>
+        <div class="card" style="width: 18rem;">
+            <a routerLink="/employees/{{employee.id}}">
+              <img class="card-img-top rounded" [ngClass]="employee.sex ==='f' ? 'female' : 'male'" [src]="employee.imageUrl" alt="Employee image">
+            </a>
+          <div class="card-body">
+            <h5 class="card-title">{{ employee.name }}</h5>
+            <div class="employee-position" [ngSwitch]="employee.position">
+              <div class="card-text" *ngSwitchCase="'Java Developer'">(Java Developer)</div>
+              <div class="card-text" *ngSwitchCase="'Business Analyst'">(Business Analyst)</div>
+              <div class="card-text" *ngSwitchCase="'Quality Assurance'">(Quality Assurance)</div>
+            </div>
+          </div>
+        </div>
+  </div>
+</div>

@@ -1,28 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { PostsComponent } from './posts/posts.component';
 import { EmployeesComponent } from './employees/employees.component';
-import { HttpClientModule } from '@angular/common/http';
 import { DetailsComponent } from './employees/details/details.component';
-import { RequestDetailComponent } from './posts/request-detail/request-detail.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    SidebarComponent,
-    PostsComponent,
     EmployeesComponent,
-    DetailsComponent,
-    RequestDetailComponent
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

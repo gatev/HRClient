@@ -14,11 +14,14 @@ export class DetailsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private employeeService: EmployeeService) {
     this.route.params.subscribe( params => this.employee = params.id );
+    console.log(this.employee);
   }
 
   ngOnInit() {
+    console.log("employee");
     this.employeeService.getEmployee(this.employee).subscribe(data => {
       this.employee = data;
+      console.log(this.employee);
   });
 }
 
