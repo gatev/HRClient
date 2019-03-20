@@ -1,10 +1,76 @@
-<!-- <h1>Служител</h1>
-
-<ul>
-  <li><strong>Име:</strong> {{ employee.name }}</li>
-  <li><strong>Оставащи дни отпуска:</strong> {{ employee.daysOff }}</li>
-</ul> -->
 <div class="container emp-profile">
+
+      <div class="row">
+          <div class="col-md-4">
+              <div class="profile-img">
+                  <img [src]="employee.imageUrl" alt="profile picture"/>
+              </div>
+          </div>
+          <div class="col-md-6">
+            <div class="profile-head">
+                <h4>{{employee.name}}</h4>
+            </div>
+              <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="home-tab">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Позиция</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{employee.position}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>E-mail адрес</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{employee.email}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Дни платен отпуск</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{employee.daysOff}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Телефон</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{employee.phone}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+          <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">От</th>
+                  <th scope="col">До</th>
+                  <th scope="col">Брой дни</th>
+                  <th scope="col">Тип</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let holiday of employee.holiday">
+                  <th scope="row">1</th>
+                  <td>{{holiday.startDate}}</td>
+                  <td>{{holiday.endDate}}</td>
+                  <td>{{holiday.numberDays}}</td>
+                  <td *ngIf="holiday.isPaidHoliday">Платен</td>
+                  <td *ngIf="holiday.isPaidHoliday">Нелатен</td>
+                </tr>
+              </tbody>
+            </table>
+    </div>
+</div>
+
+
+<!-- <div class="container emp-profile">
   <form method="post">
       <div class="row">
           <div class="col-md-4">
@@ -14,19 +80,15 @@
           </div>
           <div class="col-md-6">
               <div class="profile-head">
-                          <h5>
-                              {{employee.name}}
-                          </h5>
-                          <h6>
-                            {{employee.position}}
-                          </h6>
-                          <p class="proile-rating">ОСТАВАЩИ ДНИ : <span>{{employee.daysOff}}</span></p>
+                  <h4>
+                      {{employee.name}}
+                  </h4>
+                  <h6>{{employee.position}}</h6>
+
+                  <p class="proile-rating">ОСТАВАЩИ ДНИ : <span>{{employee.daysOff}}</span></p>
                   <ul class="nav nav-tabs" id="myTab" role="tablist">
                       <li class="nav-item">
-                          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">За {{employee.name}}</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
+                          <a class="nav-link" id="home-tab">История на отпуска</a>
                       </li>
                   </ul>
               </div>
@@ -82,56 +144,9 @@
                                   </div>
                               </div>
                   </div>
-                  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                              <div class="row">
-                                  <div class="col-md-6">
-                                      <label>Experience</label>
-                                  </div>
-                                  <div class="col-md-6">
-                                      <p>Expert</p>
-                                  </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-6">
-                                      <label>Hourly Rate</label>
-                                  </div>
-                                  <div class="col-md-6">
-                                      <p>10$/hr</p>
-                                  </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-6">
-                                      <label>Total Projects</label>
-                                  </div>
-                                  <div class="col-md-6">
-                                      <p>230</p>
-                                  </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-6">
-                                      <label>English Level</label>
-                                  </div>
-                                  <div class="col-md-6">
-                                      <p>Expert</p>
-                                  </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-6">
-                                      <label>Availability</label>
-                                  </div>
-                                  <div class="col-md-6">
-                                      <p>6 months</p>
-                                  </div>
-                              </div>
-                      <div class="row">
-                          <div class="col-md-12">
-                              <label>Your Bio</label><br/>
-                              <p>Your detail description</p>
-                          </div>
-                      </div>
-                  </div>
+
               </div>
           </div>
       </div>
   </form>
-</div>
+</div> -->

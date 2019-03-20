@@ -1,8 +1,9 @@
+import { Employee } from './../model/employee';
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
-import { Employee } from './employee';
+
 import { EmployeeService } from '../employees/services/employee.service';
 
 @Component({
@@ -25,9 +26,3 @@ export class EmployeesComponent implements OnInit {
     });
   }
 }
-
-
-
-
-
-

@@ -1,4 +1,6 @@
-export class Employee {
+import { Holiday } from './index';
+
+export interface Employee {
   id: number;
   imageUrl: string;
   name: string;
@@ -8,8 +10,6 @@ export class Employee {
   password: string;
   sex: string;
   position: string;
-
-  constructor() {
-
-  }
+  phone: string;
+  holiday: Holiday;
 }

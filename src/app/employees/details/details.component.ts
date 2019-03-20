@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Employee } from '../employee';
+// import { Component, OnInit } from '@angular/core';
+import { Employee } from '../../model/employee';
 import { ActivatedRoute } from '@angular/router';
 import { EmployeeService } from '../services/employee.service';
+import { OnInit, Component } from '@angular/core';
 
 @Component({
   selector: 'app-details',
@@ -18,10 +19,15 @@ export class DetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("employee");
+    console.log('employee');
     this.employeeService.getEmployee(this.employee).subscribe(data => {
       this.employee = data;
-      console.log(this.employee);
+      console.log(this.employee.holiday);
+      if (this.employee.holiday.isPaidHoliday = true) {
+        console.log('true');
+      } else {
+        console.log('false');
+      }
   });
 }
 
