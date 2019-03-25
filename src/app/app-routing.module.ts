@@ -1,3 +1,5 @@
+import { EmployeeService } from './_services/employee.service';
+import { AuthGuard } from './_guards/auth.guard';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
@@ -25,29 +27,37 @@ import { UserComponent } from './user/user.component';
 // ];
 
 const routes: Routes = [
-     {
-     path: '',
-     component: EmployeesComponent
-   },
+//     {
+//    path: '',
+ //    component: EmployeesComponent
+//   },
    {
      path: 'employees',
-     component: EmployeesComponent
+     component: EmployeesComponent,
+     canActivate: [AuthGuard] ,
+     resolve: {
+      employee: EmployeeService
+    }
    },
    {
      path: 'employees/:id',
-     component: DetailsComponent
+     component: DetailsComponent,
+     canActivate: [AuthGuard]
    },
   {
       path: 'home',
-      component: HomeComponent
+      component: HomeComponent,
+      canActivate: [AuthGuard]
   },
   {
       path: 'user',
-      component: UserComponent
+      component: UserComponent,
+      canActivate: [AuthGuard]
   },
   {
       path: 'admin',
-      component: AdminComponent
+      component: AdminComponent,
+      canActivate: [AuthGuard]
   },
   {
       path: 'auth/login',

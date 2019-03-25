@@ -16,7 +16,6 @@ import { UserComponent } from './user/user.component';
 import { AdminComponent } from './admin/admin.component';
 import { httpInterceptorProviders } from './_services/auth/auth-interceptor';
 
-
 @NgModule({
   declarations: [
     AppComponent,

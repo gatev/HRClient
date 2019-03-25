@@ -1,7 +1,7 @@
 import { Employee } from './../_models/employee';
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 import { EmployeeService } from '../_services/employee.service';
@@ -17,12 +17,16 @@ export class EmployeesComponent implements OnInit {
   // employee: Employee;
 
   employees: Employee[];
-  constructor(private router: Router,
-              private employeeService: EmployeeService) { }
+  constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.employeeService.getAllEmployees().subscribe(data => {
-      this.employees = data;
-    });
+    this.employees = this.activatedRoute.snapshot.data['employee'];
+    console.log(this.employees );
+
+
+
+    // this.employeeService.getAllEmployees().subscribe(data => {
+    //   this.employees = data;
+    // });
   }
 }
