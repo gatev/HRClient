@@ -11,5 +11,5 @@ export interface Employee {
   sex: string;
   position: string;
   phone: string;
-  holiday: Holiday;
+  holiday: Holiday[];
 }

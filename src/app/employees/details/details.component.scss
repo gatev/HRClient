@@ -40,3 +40,23 @@ body{
 .table {
   margin-top: 25px;
 }
+
+/*pagination*/
+.justify-content-center.paginate {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+
+.my-pagination /deep/ .ngx-pagination .current {
+  background: #1BA1D6;
+}
+
+.my-pagination /deep/ .ngx-pagination{
+  margin-left: -35px !important;
+}
+
+ul.ngx-pagination {
+  padding: 0px !important;
+}
+

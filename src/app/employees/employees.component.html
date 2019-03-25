@@ -8,10 +8,8 @@
             </a>
           <div class="card-body">
             <h5 class="card-title">{{ employee.name }}</h5>
-            <div class="employee-position" [ngSwitch]="employee.position">
-              <div class="card-text" *ngSwitchCase="'Java Developer'">(Java Developer)</div>
-              <div class="card-text" *ngSwitchCase="'Business Analyst'">(Business Analyst)</div>
-              <div class="card-text" *ngSwitchCase="'Quality Assurance'">(Quality Assurance)</div>
+            <div class="employee-position">
+              <div class="card-text"> {{ employee.position }}</div>
             </div>
           </div>
         </div>

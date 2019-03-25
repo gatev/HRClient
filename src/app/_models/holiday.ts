@@ -3,6 +3,5 @@ export interface Holiday {
   startDate: string;
   endDate: string;
   numberDays: number;
-  isPaidHoliday: boolean;
-
+  paidHoliday: boolean;
 }
