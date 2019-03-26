@@ -68,7 +68,8 @@ const routes: Routes = [
       component: RegisterComponent
   },
   {
-      path: '',
+    // These two stars are used for letting the Angular know If no matching route found, then go back to the mentioned route.
+      path: '**',
       redirectTo: 'home',
       pathMatch: 'full'
   }

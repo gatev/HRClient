@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from './_services/auth/token-storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,12 +8,11 @@ import { TokenStorageService } from './_services/auth/token-storage.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'HR Managment System - Empiriu';
   private roles: string[];
   authority: string;
   info: any;
 
-  constructor(private token: TokenStorageService) { }
+  constructor(private token: TokenStorageService, private router: Router) { }
 
   ngOnInit() {
     if (this.token.getToken()) {
@@ -20,9 +20,11 @@ export class AppComponent implements OnInit {
       this.roles.every(role => {
         if (role === 'ROLE_ADMIN') {
           this.authority = 'admin';
-          return false;
+          this.router.navigate(['employees']);
+          return true;
         }
         this.authority = 'user';
+        this.router.navigate(['user']);
         return true;
       });
     }
