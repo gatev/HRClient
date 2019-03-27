@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
 
 
+
 import { EmployeeService } from '../_services/employee.service';
 
 @Component({
@@ -15,6 +16,7 @@ export class EmployeesComponent implements OnInit {
 
   // @Input()
   // employee: Employee;
+  searchText: string;
 
   employees: Employee[];
   constructor(private activatedRoute: ActivatedRoute) { }

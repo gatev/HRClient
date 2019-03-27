@@ -20,14 +20,14 @@ export class DetailsComponent extends PaginationComponent implements OnInit {
   constructor(private route: ActivatedRoute, private employeeService: EmployeeService) {
     super();
     this.route.params.subscribe( params => this.employee = params.id );
-    console.log(this.employee);
+    // console.log(this.employee);
   }
 
   ngOnInit() {
     console.log('employee');
     this.employeeService.getEmployee(this.employee).subscribe(data => {
       this.employee = data;
-      console.log(this.employee.holiday);
+      // console.log(this.employee.holiday);
       this.holidays = this.employee.holiday;
       this.holidays.sort(function(h1, h2) {
          return h1.id - h2.id;
