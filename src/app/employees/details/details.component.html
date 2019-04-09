@@ -52,7 +52,6 @@
               </tr>
             </thead>
             <tbody>
-              <!-- <tr *ngFor="let holiday of holidays ; index as i"> -->
               <tr *ngFor="let holiday of holidays | paginate: { itemsPerPage: 5, currentPage: page }; index as i">
                 <td>{{holiday.startDate}}</td>
                 <td>{{holiday.endDate}}</td>

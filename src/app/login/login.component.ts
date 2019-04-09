@@ -24,12 +24,18 @@ export class LoginComponent implements OnInit {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getAuthorities();
     }
+
+    this.form.username = '';
+    this.form.password = '';
+    this.form.rememberMe = false;
   }
 
   onSubmit() {
       this.loginInfo = new AuthLoginInfo(
       this.form.username,
-      this.form.password);
+      this.form.password,
+      this.form.rememberMe
+      );
 
     this.authService.attemptAuth(this.loginInfo).subscribe(
       data => {

@@ -24,7 +24,7 @@
                 <div>
                     <!-- Remember me -->
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
+                        <input type="checkbox" class="custom-control-input" name="rememberMe" [(ngModel)]="form.rememberMe" #rememberMe="ngModel" id="defaultLoginFormRemember">
                         <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
                     </div>
                 </div>
