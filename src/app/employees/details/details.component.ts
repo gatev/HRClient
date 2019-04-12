@@ -16,19 +16,20 @@ export class DetailsComponent extends PaginationComponent implements OnInit {
   headElements = ['От', 'До', 'Брой дни', 'Тип'];
   employee: Employee;
   holidays: Holiday[];
+  isHoliday = false;
 
   constructor(private route: ActivatedRoute, private employeeService: EmployeeService) {
     super();
     this.route.params.subscribe( params => this.employee = params.id );
-    // console.log(this.employee);
   }
 
   ngOnInit() {
-    console.log('employee');
     this.employeeService.getEmployee(this.employee).subscribe(data => {
       this.employee = data;
-      // console.log(this.employee.holiday);
       this.holidays = this.employee.holiday;
+      if(this.holidays.length > 0) {
+        this.isHoliday = true;
+      }
       this.holidays.sort(function(h1, h2) {
          return h1.id - h2.id;
       });

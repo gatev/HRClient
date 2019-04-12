@@ -4,22 +4,21 @@
   <div class="container">
         <form class="text-center border border-light p-5" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
             <p class="h4 mb-4">Please sign in</p>
-            <input type="text" class="form-control mb-4" name="username" placeholder="Username" [(ngModel)]="form.username" #username="ngModel" required />
             <div *ngIf="f.submitted && username.invalid">
-              <div *ngIf="username.errors.required">
-                  <div class="error">Username is required</div>
+                <div *ngIf="username.errors.required">
+                    <div class="error">Username is required</div>
+                </div>
               </div>
-            </div>
-            <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="form.password" #password="ngModel" required minlength="6" />
+            <input type="text" class="form-control mb-4" name="username" placeholder="Username" [(ngModel)]="form.username" #username="ngModel" required />
             <div *ngIf="f.submitted && password.invalid">
-              <div *ngIf="password.errors.required">
-                <div class="error">Password is required</div>
+                <div *ngIf="password.errors.required">
+                  <div class="error">Password is required</div>
+                </div>
+                <div *ngIf="password.errors.minlength">
+                  <div class="error">Password must be at least 6 characters</div>
+                </div>
               </div>
-              <div *ngIf="password.errors.minlength">
-                <div class="error">Password must be at least 6 characters</div>
-              </div>
-            </div>
-
+            <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="form.password" #password="ngModel" required minlength="6" />
             <div class="d-flex justify-content-around">
                 <div>
                     <!-- Remember me -->

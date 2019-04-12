@@ -3,46 +3,95 @@
 </div>
 
 <ng-template #signupForm>
-  <div class="row col-sm-6" style="max-width:350px;">
-    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-      <div class="form-group">
-        <label for="name">Your name</label>
-        <input type="text" class="form-control" name="name" [(ngModel)]="form.name" #name="ngModel" required />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+
+    <div class="container">
+    <div class="card bg-light">
+    <article class="card-body mx-auto" style="max-width: 400px;">
+      <h4 class="card-title mt-3 text-center">Create Account</h4>
+      <p>
+        <a href="" class="btn btn-block btn-twitter"> <i class="fab fa-google"></i>   Login via Google</a>
+        <a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
+      </p>
+      <p class="divider-text">
+            <span class="bg-light">OR</span>
+        </p>
+      <form class="text-center border border-light p-5" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+        <!-- NAME -->
         <div *ngIf="f.submitted && name.invalid">
-          <div *ngIf="name.errors.required">Name is required</div>
+          <div *ngIf="name.errors.required">
+              <div class="error">Name is required</div>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel"
-          required />
-        <div *ngIf="f.submitted && username.invalid">
-          <div *ngIf="username.errors.required">Username is required</div>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          </div>
+          <input type="text" name="name" class="form-control" placeholder="Full name" [(ngModel)]="form.name" #name="ngModel" required >
         </div>
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="text" class="form-control" name="email" [(ngModel)]="form.email" #email="ngModel" required email />
+        <!-- EMAIL -->
         <div *ngIf="f.submitted && email.invalid">
-          <div *ngIf="email.errors.required">Email is required</div>
-          <div *ngIf="email.errors.email">Email must be a valid email address</div>
+          <div *ngIf="email.errors.required">
+              <div class="error">Email is required</div>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" class="form-control" name="password" [(ngModel)]="form.password" #password="ngModel"
-          required minlength="6" />
-        <div *ngIf="f.submitted && password.invalid">
-          <div *ngIf="password.errors.required">Password is required</div>
-          <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+          </div>
+          <input type="email" name="email" class="form-control" placeholder="Email address" [(ngModel)]="form.email" #email="ngModel" required >
         </div>
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary">Register</button>
-        <div *ngIf="f.submitted && isSignUpFailed" class="alert alert-warning">
-          Signup failed!<br/>{{errorMessage}}
+        <!-- PHONE -->
+        <div *ngIf="f.submitted && phone.invalid">
+          <div *ngIf="phone.errors.required">
+              <div class="error">Phone is required</div>
+          </div>
         </div>
-      </div>
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+          </div>
+          <input type="text" name="phone" class="form-control" placeholder="Phone number" [(ngModel)]="form.phone" #phone="ngModel" required >
+          </div>
+                  <!-- POSITION -->
+        <div *ngIf="f.submitted && position.invalid">
+            <div *ngIf="position.errors.required">
+                <div class="error">Position is required</div>
+            </div>
+          </div>
+          <div class="form-group input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+          </div>
+          <select class="form-control" #selectedValue name="position" [(ngModel)]="form.position" #phone="ngModel" required>
+            <!-- <option selected=""> Select job type</option> --> -->
+            <!-- <option [ngValue]="null">Choose a posiion</option> -->
+            <option *ngFor="let position of positions" [ngValue]="position.name">
+              {{ position.name }}
+            </option>
+          </select>
+        </div> <!-- form-group end.// -->
+          <div class="form-group input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+          </div>
+              <input class="form-control" placeholder="Create password" type="password">
+          </div> <!-- form-group// -->
+          <div class="form-group input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+          </div>
+              <input class="form-control" placeholder="Repeat password" type="password">
+          </div> <!-- form-group// -->
+          <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
+          </div> <!-- form-group// -->
+          <p class="text-center">Have an account?<a class="nav-link" routerLink="auth/login">Log in</a></p>
     </form>
-  </div>
+    </article>
+    </div> <!-- card.// -->
+
+    </div>
+
 </ng-template>

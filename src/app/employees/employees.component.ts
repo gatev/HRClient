@@ -23,12 +23,5 @@ export class EmployeesComponent implements OnInit {
 
   ngOnInit() {
     this.employees = this.activatedRoute.snapshot.data['employee'];
-    console.log(this.employees );
-
-
-
-    // this.employeeService.getAllEmployees().subscribe(data => {
-    //   this.employees = data;
-    // });
   }
 }

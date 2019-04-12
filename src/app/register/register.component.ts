@@ -9,6 +9,16 @@ import { SignUpInfo } from '../_models/sigup-info';
 })
 export class RegisterComponent implements OnInit {
 
+  positions = [
+    {name: 'Manager'},
+    {name: 'Team Leader'},
+    {name: 'Java Developer'},
+    {name: 'C# Developer'},
+    {name: 'Database Administrator'},
+    {name: 'Business Analyst'},
+    {name: 'Quality Assurance'}
+  ];
+
   form: any = {};
   signupInfo: SignUpInfo;
   isSignedUp = false;
@@ -26,7 +36,10 @@ export class RegisterComponent implements OnInit {
       this.form.name,
       this.form.username,
       this.form.email,
-      this.form.password);
+      this.form.password,
+      this.form.phone,
+      this.form.position
+      );
 
     this.authService.signUp(this.signupInfo).subscribe(
       data => {

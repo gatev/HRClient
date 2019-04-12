@@ -52,14 +52,20 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let holiday of holidays | paginate: { itemsPerPage: 5, currentPage: page }; index as i">
-                <td>{{holiday.startDate}}</td>
-                <td>{{holiday.endDate}}</td>
-                <td>{{holiday.numberDays}}</td>
-                <td *ngIf="holiday.paidHoliday;else else_content">Платен</td>
-                <ng-template #else_content><td>Неплатен</td></ng-template>
-              </tr>
+                <!-- <div *ngIf="holidays.length > 0;else no_holiday_template"> -->
+
+                  <tr *ngFor="let holiday of holidays | paginate: { itemsPerPage: 5, currentPage: page }; index as i">
+                      <td>{{holiday.startDate}}</td>
+                      <td>{{holiday.endDate}}</td>
+                      <td>{{holiday.numberDays}}</td>
+                      <td *ngIf="holiday.paidHoliday;else else_content">Платен</td>
+                      <ng-template #else_content><td>Неплатен</td></ng-template>
+
+                  </tr>
+                <!-- </div> -->
+
             </tbody>
+
           </table>
           <div class="col-12 justify-content-center paginate">
             <pagination-controls class="my-pagination" (pageChange)="page = $event"
