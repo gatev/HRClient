@@ -1,10 +1,10 @@
 export class AuthLoginInfo {
-  username: string;
+  email: string;
   password: string;
   rememberMe: boolean;
 
-  constructor(username: string, password: string, rememberMe: boolean) {
-      this.username = username;
+  constructor(email: string, password: string, rememberMe: boolean) {
+      this.email = email;
       this.password = password;
       this.rememberMe = rememberMe;
   }

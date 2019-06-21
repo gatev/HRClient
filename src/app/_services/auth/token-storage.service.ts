@@ -2,7 +2,7 @@ import { HttpRequest, HttpHandler } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 const TOKEN_KEY = 'AuthToken';
-const USERNAME_KEY = 'AuthUsername';
+const EMAIL_KEY = 'AuthEmail';
 const AUTHORITIES_KEY = 'AuthAuthorities';
 
 @Injectable({
@@ -27,13 +27,13 @@ export class TokenStorageService {
     return localStorage.getItem(TOKEN_KEY);
   }
 
-  public saveUsername(username: string) {
-    window.localStorage.removeItem(USERNAME_KEY);
-    window.localStorage.setItem(USERNAME_KEY, username);
+  public saveEmail(email: string) {
+    window.localStorage.removeItem(EMAIL_KEY);
+    window.localStorage.setItem(EMAIL_KEY, email);
   }
 
-  public getUsername(): string {
-    return localStorage.getItem(USERNAME_KEY);
+  public getEmail(): string {
+    return localStorage.getItem(EMAIL_KEY);
   }
 
   public saveAuthorities(authorities: string[]) {

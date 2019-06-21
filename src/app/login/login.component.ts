@@ -25,14 +25,14 @@ export class LoginComponent implements OnInit {
       this.roles = this.tokenStorage.getAuthorities();
     }
 
-    this.form.username = '';
+    this.form.email = '';
     this.form.password = '';
     this.form.rememberMe = false;
   }
 
   onSubmit() {
       this.loginInfo = new AuthLoginInfo(
-      this.form.username,
+      this.form.email,
       this.form.password,
       this.form.rememberMe
       );
@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
     this.authService.attemptAuth(this.loginInfo).subscribe(
       data => {
         this.tokenStorage.saveToken(data.accessToken);
-        this.tokenStorage.saveUsername(data.username);
+        this.tokenStorage.saveEmail(data.email);
         this.tokenStorage.saveAuthorities(data.authorities);
 
         this.isLoginFailed = false;
