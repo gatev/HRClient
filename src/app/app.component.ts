@@ -11,12 +11,14 @@ export class AppComponent implements OnInit {
   private roles: string[];
   authority: string;
   info: any;
+  userId: string;
 
   constructor(private token: TokenStorageService, private router: Router) { }
 
   ngOnInit() {
     if (this.token.getToken()) {
       this.roles = this.token.getAuthorities();
+      this.userId = this.token.getId();
       this.roles.every(role => {
         if (role === 'ROLE_ADMIN') {
           this.authority = 'admin';
@@ -24,7 +26,7 @@ export class AppComponent implements OnInit {
           return true;
         }
         this.authority = 'user';
-        this.router.navigate(['user']);
+        this.router.navigate(['employees/' + this.userId]);
         return true;
       });
     }

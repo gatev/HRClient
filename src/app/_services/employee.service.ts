@@ -15,10 +15,10 @@ export class EmployeeService implements Resolve<any> {
   // private userUrl = 'http://192.168.21.45:8080/api/test/user';
   // private adminUrl = 'http://192.168.21.45:8080/api/test/admin';
 
-  public API_URL = 'http://localhost:8080/api/employees/';
+  public API_URL = 'http://192.168.21.29:8080/api/employees/';
 
-  private userUrl = 'http://localhost:8080/api/test/user';
-  private adminUrl = 'http://localhost:8080/api/test/admin';
+  private userUrl = 'http://192.168.21.29:8080/api/test/user';
+  private adminUrl = 'http://192.168.21.29:8080/api/test/admin';
 
   constructor(private http: HttpClient, private router: Router) { }
 
