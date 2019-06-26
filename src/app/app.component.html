@@ -12,7 +12,7 @@
       <li class="nav-item" *ngIf="authority === 'admin'">
         <a class="nav-link" routerLink="employees">Служители</a>
       </li>
-      <li *ngIf="authority" class="nav-item">
+ <!--     <li *ngIf="authority" class="nav-item">
         <a class="nav-link" routerLink="home">Token info</a>
       </li>
       <li *ngIf="authority === 'user'" class="nav-item">
@@ -20,7 +20,7 @@
       </li>
       <li *ngIf="authority === 'admin'" class="nav-item">
         <a class="nav-link" routerLink="admin">Admin Board</a>
-      </li>
+      </li> -->
       <li class="logout" *ngIf="authority" class="nav-item ml-auto">
         <a class="nav-link" (click)="logout()" href="">Изход</a>
       </li>

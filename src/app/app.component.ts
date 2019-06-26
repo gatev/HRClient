@@ -22,10 +22,9 @@ export class AppComponent implements OnInit {
       this.roles.every(role => {
         if (role === 'ROLE_ADMIN') {
           this.authority = 'admin';
-          this.router.navigate(['employees']);
-          return true;
+        } else if (role === 'ROLE_USER') {
+          this.authority = 'user';
         }
-        this.authority = 'user';
         this.router.navigate(['employees/' + this.userId]);
         return true;
       });

@@ -2,13 +2,11 @@ import { EmployeeService } from './_services/employee.service';
 import { AuthGuard } from './_guards/auth.guard';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { EmployeesComponent } from './employees/employees.component';
 import { DetailsComponent } from './employees/details/details.component';
-import { UserComponent } from './user/user.component';
 
 
 // const routes: Routes = [
@@ -47,16 +45,6 @@ const routes: Routes = [
   {
       path: 'home',
       component: HomeComponent,
-      canActivate: [AuthGuard]
-  },
-  {
-      path: 'user',
-      component: UserComponent,
-      canActivate: [AuthGuard]
-  },
-  {
-      path: 'admin',
-      component: AdminComponent,
       canActivate: [AuthGuard]
   },
   {
